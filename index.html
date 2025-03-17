@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of X Open Day 2025</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --events-color: #e74c3c;
+            --courses-color: #3498db;
+            --faqs-color: #2ecc71;
+            --inquiries-color: #9b59b6;
+            --light-bg: #ecf0f1;
+            --dark-text: #2c3e50;
+            --light-text: #ecf0f1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .welcome-screen {
+            text-align: center;
+            padding: 2rem;
+            background-image: url('https://live.staticflickr.com/65535/50569716971_3e47f171de_b.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0,0,0,0.5);
+            background-blend-mode: multiply;
+        }
+
+        .welcome-screen h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .welcome-screen p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--light-text);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .start-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: rgba(255,255,255,0.9);
+            color: var(--dark-text);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .start-btn:hover {
+            background-color: rgba(255,255,255,0.7);
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        nav ul li {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .tab {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+
+        .tab.active {
+            background-color: var(--events-color);
+            color: var(--light-text);
+        }
+
+        .content-section {
+            padding: 1rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: 1rem;
+        }
+
+        /* Events Page Styles */
+        .events-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .event-item {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .event-time {
+            background-color: var(--events-color);
+            color: var(--light-text);
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .event-details {
+            flex-grow: 1;
+        }
+
+        /* Courses Page Styles */
+        .courses-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .course-item {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .course-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* FAQs Page Styles */
+        .faqs-list {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .faq-item {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+        }
+
+        .faq-question {
+            background-color: var(--faqs-color);
+            color: var(--light-text);
+            padding: 1rem;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .faq-answer {
+            padding: 1rem;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* Inquiries Page Styles */
+        .inquiry-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            background-color: var(--inquiries-color);
+            color: var(--light-text);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #7f67be;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-screen">
+        <h1>University of X welcomes you to the 2025 Open Day </h1>
+        <p>Discover our academic excellence and campus life</p>
+        <button class="start-btn">Explore Now</button>
+    </div>
+
+    <nav>
+        <ul>
+            <li class="tab active" data-target="events">Events</li>
+            <li class="tab" data-target="courses">Courses</li>
+            <li class="tab" data-target="faqs">FAQs</li>
+            <li class="tab" data-target="inquiries">Inquiries</li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Events Section -->
+        <section id="events" class="content-section">
+            <h2>Events Schedule</h2>
+            <div class="events-grid">
+                <div class="event-item">
+                    <div class="event-time">09:30 AM</div>
+                    <div class="event-details">
+                        <h3>Registration & Welcome</h3>
+                        <p>Campus Hall, Main Foyer</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-time">10:00 AM</div>
+                    <div class="event-details">
+                        <h3>Official Opening</h3>
+                        <p>Keynote speech by the Vice-Chancellor</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-time">10:30 AM</div>
+                    <div class="event-details">
+                        <h3>Campus Tours</h3>
+                        <p>Explore our state-of-the-art facilities</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-time">11:30 AM</div>
+                    <div class="event-details">
+                        <h3>Academic Presentations</h3>
+                        <p>Learn about our undergraduate programs</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-time">12:30 PM</div>
+                    <div class="event-details">
+                        <h3>Student Q&A Panel</h3>
+                        <p>Hear from current students about university life</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-time">01:30 PM</div>
+                    <div class="event-details">
+                        <h3>Lunch Break</h3>
+                        <p>Food and refreshments available</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-time">02:00 PM</div>
+                    <div class="event-details">
+                        <h3>Subject-specific Sessions</h3>
+                        <p>Meet academic staff and learn more about your subject</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-time">03:30 PM</div>
+                    <div class="event-details">
+                        <h3>Student Life Workshops</h3>
+                        <p>Discover clubs, societies, and support services</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-time">04:30 PM</div>
+                    <div class="event-details">
+                        <h3>Closing Remarks</h3>
+                        <p>Final thoughts and next steps</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses" class="content-section">
+            <h2>Courses Offered</h2>
+            <div class="courses-list">
+                <div class="course-item">
+                    <h3>Computer Science</h3>
+                    <p>Explore the world of technology and innovation</p>
+                </div>
+                <div class="course-item">
+                    <h3>Business Administration</h3>
+                    <p>Develop leadership and management skills</p>
+                </div>
+                <div class="course-item">
+                    <h3>Mechanical Engineering</h3>
+                    <p>Design and build the future</p>
+                </div>
+                <div class="course-item">
+                    <h3>Medicine</h3>
+                    <p>Pursue a career in healthcare</p>
+                </div>
+                <div class="course-item">
+                    <h3>Law</h3>
+                    <p>Study the principles of justice</p>
+                </div>
+                <div class="course-item">
+                    <h3>Psychology</h3>
+                    <p>Understand human behavior and mental processes</p>
+                </div>
+                <div class="course-item">
+                    <h3>Environmental Science</h3>
+                    <p>Address global environmental challenges</p>
+                </div>
+                <div class="course-item">
+                    <h3>Economics</h3>
+                    <p>Analyze global economic systems</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section id="faqs" class="content-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faqs-list">
+                <div class="faq-item">
+                    <div class="faq-question">What time does the open day start?</div>
+                    <div class="faq-answer">The open day starts at 09:30 AM with registration</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do I need to register?</div>
+                    <div class="faq-answer">Yes, please register online to secure your spot</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I bring a guest?</div>
+                    <div class="faq-answer">Yes, you can bring up to two guests</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is parking available?</div>
+                    <div class="faq-answer">Yes, limited parking is available on campus</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What should I bring?</div>
+                    <div class="faq-answer">Bring your registration confirmation and any questions you have</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Are refreshments provided?</div>
+                    <div class="faq-answer">Yes, light refreshments and lunch will be provided</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inquiries Section -->
+        <section id="inquiries" class="content-section">
+            <h2>Contact Us</h2>
+            <form class="inquiry-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                <button type="submit">Submit Inquiry</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        // Add form submission handling here
+        document.querySelector('.inquiry-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for your inquiry! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Add tab switching logic here
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-target');
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.style.display = section.id === target ? 'block' : 'none';
+                });
+                document.querySelector('.tab.active').classList.remove('active');
+                tab.classList.add('active');
+            });
+        });
+
+        // Show the first section by default
+        document.querySelector('#events').style.display = 'block';
+    </script>
+</body>
+</html>
