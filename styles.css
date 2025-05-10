@@ -114,10 +114,13 @@ body{
     transform: translate(-50%, -60%);
 }
 
-/*class 1 page*/
-.class1 {
-    font-size: x-large;
+.class1-page {
+    margin-top: 1rem;
+    height: calc(100% - 5rem);
+    overflow-y: auto;
+    position: relative;
 }
+
 
 .class2 {
     font-size: larger;
@@ -203,28 +206,43 @@ body{
 .welcome p{
     font-weight: 500;
 }
+.category-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2e2e2e;
+    margin-bottom: 1rem;
+}
+.category-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2e2e2e;
+    margin-bottom: 1rem;
+}
 
 .categories button {
     width: 100%;
     display: flex;
-    max-width: 50vh;  
+    max-width: 50vh;
     padding: 15px;
-    /* font-size: 22px;  */
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
     text-align: end;
-    color: white;
-    background-color: #2c3e50; 
+    background-color: #A89F91; /* ✅ Updated from #c2b280 */
+    color: #2e2e2e;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    letter-spacing: 0.5px; /* ✅ Enhanced typography */
 }
 
 .categories button:hover {
-    background-color: #1a252f; 
+    background-color: #BFAFA2; /* ✅ Softer taupe hover */
     transform: scale(1.05);
 }
+
 
 .categories-wrapper{
     width: 100%;
@@ -266,7 +284,7 @@ body{
     height: 3rem;
     width: 7rem;
     background-color: #565254;
-    color: #fff;
+    color:#FFC107;
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
@@ -281,7 +299,7 @@ body{
     height: 3rem;
     width: 7rem;
     background-color: #565254;
-    color: #fff;
+    color:#FFC107;
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
@@ -308,6 +326,7 @@ body{
 .event-container {
     margin-top: 20px;
     padding: 15px;
+
 }
 
 .event-container header {
@@ -342,7 +361,7 @@ body{
 }
 
 .time-box {
-    background: #28a745;
+    background: #FFC107;
     color: white;
     padding: 10px;
     border-radius: 5px;
@@ -585,3 +604,120 @@ body{
     text-decoration: none;
     list-style-type: none;
   }
+  
+  .course-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 1rem;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.card {
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+    display: block;
+}
+
+.card .container {
+    padding: 12px;
+}
+
+.card .container h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.card .container p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+
+
+
+
+
+
+/* === High-End Visual Theme Enhancements === */
+
+/* Accent color for all category and navigation buttons */
+.categories button {
+    background-color: #A89F91;  /* Warm taupe */
+    color: #2e2e2e;
+}
+
+.categories button:hover {
+    background-color: #BFAFA2;  /* Slightly lighter taupe on hover */
+    transform: scale(1.05);
+}
+
+/* Highlight utility buttons like Start, Back */
+.startbtn,
+.back-btn,
+.classback-btn,
+.classback-btn_two,
+.classback-btn_three,
+.classback-btn_four {
+    background-color: #D4AF37;  /* Champagne gold */
+    color: #2e2e2e;
+}
+
+/* Time box on event cards */
+.time-box {
+    background: #D4AF37;
+    color: white;
+}
+
+/* Additional styling for visual consistency */
+.event-row {
+    background: #FAFAFA;  /* Slightly off-white for card contrast */
+    border: 1px solid #e0e0e0;
+}
+
+.event-box h3 {
+    color: #2E2E2E;
+}
+
+.event-box p {
+    color: #555;
+}
+
+/* FAQ toggle improvement */
+.faq.active {
+    background-color: #F9F9F9;
+    border-left: 5px solid #D4AF37;
+}
+
+/* Tab label typography upgrade */
+.categories .class1,
+.categories .class2,
+.categories .class3 {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Ensure all buttons feel consistent */
+button {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}

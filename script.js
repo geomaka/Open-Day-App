@@ -11,6 +11,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const classbackBtnThree = document.querySelector(".classback-btn_three");
     const classbackBtnFour = document.querySelector(".classback-btn_four");
     const faqs = document.querySelectorAll(".faq");
+	
+	const searchBar = document.getElementById("search-bar");
+	if (searchBar) {
+		searchBar.addEventListener("input", () => {
+			const query = searchBar.value.toLowerCase();
+			document.querySelectorAll(".event-row").forEach(row => {
+				const text = row.textContent.toLowerCase();
+				row.style.display = text.includes(query) ? "flex" : "none";
+			});
+		});
+	}
 
     /**
      * Toggles the category screen
